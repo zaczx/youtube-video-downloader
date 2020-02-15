@@ -23,5 +23,5 @@ try:
 except:
     print("Error downloading")
 
-print(first_video + ' download complete. ')
+print(first_video.title + ' download complete. ')
 
