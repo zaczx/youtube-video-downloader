@@ -2,7 +2,7 @@ from pytube import YouTube
 from bs4 import BeautifulSoup
 import requests
 
-
+SAVE_PATH = 'E:/'
 search = "https://www.youtube.com/results"
 
 video_search = input("Type the name of the video: ")
@@ -17,5 +17,11 @@ yt = YouTube('http://www.youtube.com' + link)
 
 first_video = yt.streams.filter(progressive=True, subtype = 'mp4').first()
 
-print(first_video.title)
+try:
+    print('Downloading ', first_video.title)
+    first_video.download(SAVE_PATH)
+except:
+    print("Error downloading")
+
+print(first_video + ' download complete. ')
 
